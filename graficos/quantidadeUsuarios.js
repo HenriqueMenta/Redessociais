@@ -1,4 +1,4 @@
-import { getCSS, tickConfig } from "./common.js"
+import { criarGrafico, getCSS, tickConfig } from "./common.js"
 
 
 async function quantidadeUsuariosPorRede() {
@@ -11,8 +11,8 @@ async function quantidadeUsuariosPorRede() {
 
     const data = [
         {
-            x: nomeDasRedes, 
-            y: quantidadeDeUsuarios, 
+            x: nomeDasRedes,
+            y: quantidadeDeUsuarios,
             type: 'bar',
             marker: {
                 color: getCSS('--primary-color')
@@ -54,10 +54,7 @@ async function quantidadeUsuariosPorRede() {
     }
 
 
-    const grafico = document.createElement('div')
-    grafico.className = 'grafico'
-    document.getElementById('graficos-container').appendChild(grafico)
-    Plotly.newPlot(grafico, data, layout)
+    criarGrafico(data, layout)
 }
 
 
